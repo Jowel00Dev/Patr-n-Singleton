@@ -9,7 +9,12 @@ public class BaseDatos {
 	
 	private static BaseDatos instancia;
 	private List<Usuario> listaUsuarios;
-	
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
+
+    	
 	public BaseDatos() {
 		listaUsuarios = new ArrayList<Usuario>();
 		
@@ -30,5 +35,8 @@ public class BaseDatos {
 	public List<Usuario> getListaUsuarios(){
 		return listaUsuarios;
 	}
-
+    public void addUsuario(Usuario usuarioAgregar ) {
+        this.listaUsuarios.add(usuarioAgregar);
+        
+    }
 }
