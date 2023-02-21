@@ -9,8 +9,8 @@ public class UsuarioVista {
 
     private static int opcion;
     private static Scanner sc = new Scanner(System.in);
-    private static Usuario user;
-    private static UsuarioLogica logica = new UsuarioLogica();
+    private Usuario user;
+    private final UsuarioLogica logica = new UsuarioLogica();
 
     public void mostrarMenuPrincipal() {
         user = null;
@@ -66,7 +66,7 @@ public class UsuarioVista {
         System.out.println("3. Volver al menú de opciones");
         int op = Integer.parseInt(sc.nextLine());
         String cambio;
-        Usuario antiguoUser = user;
+        Usuario antiguoUser = new Usuario(user.getUsuario(),user.getContrasena());
         System.out.println("");
         System.out.println("----------------------------------------------");
         switch (op) {

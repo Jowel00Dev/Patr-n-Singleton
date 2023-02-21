@@ -8,7 +8,7 @@ import edu.konrad.modelo.Usuario;
 public class UsuarioDAO {
 
     private static BaseDatos bd = BaseDatos.getInstancia();
-    private static List<Usuario> lista = bd.getListaUsuarios();
+    private List<Usuario> lista = bd.getListaUsuarios();
 
     public boolean readUsuario(Usuario usuarioABuscar) {
         for (Usuario usuarioLista : lista) {
@@ -31,11 +31,12 @@ public class UsuarioDAO {
     }
 
     public boolean updateUsuario(Usuario usuarioAModificar, Usuario usuarioNuevo) {
-        int indice = -1;
-        indice = lista.indexOf(usuarioAModificar);
-        if (indice != -1) {
-            lista.set(indice, usuarioNuevo);
-            return true;
+        for (int i=0;i<lista.size();i++){
+            if (lista.get(i).getUsuario().equals(usuarioAModificar.getUsuario())){
+                lista.set(i, usuarioNuevo);
+                bd.setListaUsuarios(lista);
+                return true;
+            }
         }
         return false;
 

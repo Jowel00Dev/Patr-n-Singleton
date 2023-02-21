@@ -5,7 +5,7 @@ import edu.konrad.modelo.Usuario;
 
 public class UsuarioLogica {
 
-    private static UsuarioDAO dao = new UsuarioDAO();
+    private UsuarioDAO dao = new UsuarioDAO();
 
     public String autenticar(String user, String pwd) {
         Usuario usuario = new Usuario(user, pwd);
