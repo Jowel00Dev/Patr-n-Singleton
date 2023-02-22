@@ -21,16 +21,21 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean createUsuario(Usuario usuarioACrear) {
-        for (Usuario usuarioLista : lista) {
-            if (usuarioLista.getUsuario() == usuarioACrear.getUsuario()) {
-                bd.addUsuario(usuarioACrear);
-                return true;
-            }
-        }
 
-        return false;
+public boolean createUsuario(Usuario usuarioACrear) {
+    for (Usuario usuarioLista : lista) {
+        if (usuarioLista.getUsuario().equals(usuarioACrear.getUsuario())) {
+            // El usuario ya existe, por lo que no podemos crearlo.
+            return false;
+        }
     }
+    // El usuario no existe, así que podemos crearlo
+
+    bd.addUsuario(usuarioACrear);
+    return true;
+    }
+
+    
 
     public boolean updateUsuario(Usuario usuarioAModificar, Usuario usuarioNuevo) {
         for (int i=0;i<lista.size();i++){
