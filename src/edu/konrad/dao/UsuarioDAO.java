@@ -22,18 +22,7 @@ public class UsuarioDAO {
     }
 
 
-public boolean createUsuario(Usuario usuarioACrear) {
-    for (Usuario usuarioLista : lista) {
-        if (usuarioLista.getUsuario().equals(usuarioACrear.getUsuario())) {
-            // El usuario ya existe, por lo que no podemos crearlo.
-            return false;
-        }
-    }
-    // El usuario no existe, así que podemos crearlo
 
-    bd.addUsuario(usuarioACrear);
-    return true;
-    }
 
     
 
@@ -48,6 +37,22 @@ public boolean createUsuario(Usuario usuarioACrear) {
         return false;
 
     }
+
+
+
+public boolean createUsuario(Usuario usuarioACrear) {
+    for (Usuario usuarioLista : lista) {
+        if (usuarioLista.getUsuario().equals(usuarioACrear.getUsuario())) {
+            // El usuario ya existe, por lo que no podemos crearlo.
+            return false;
+        }
+    }
+    // El usuario no existe, así que podemos crearlo
+
+    bd.addUsuario(usuarioACrear);
+    return true;
+    }
+
 
     public boolean deleteUsuario(Usuario usuarioAEliminar) {
       try{  
