@@ -89,9 +89,16 @@ public class UsuarioVista {
                 break;
         }
     }
-
+	
     private void crearUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("");
+        System.out.println("----------------------------------------------");
+        System.out.println("Ingrese el nombre del nuevo usuario");
+        String nuevoUsuario = sc.nextLine();
+        System.out.println("Ingrese la contraseña del nuevo usuario");
+        String nuevaContrasena = sc.nextLine();
+        Usuario nuevoUser = new Usuario(nuevoUsuario, nuevaContrasena);
+        System.out.println(logica.crear(nuevoUser));
     }
 
     private void eliminarUsuario() {
