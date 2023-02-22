@@ -27,6 +27,14 @@ public class UsuarioLogica {
         return "El cambio no se aplicó correctamente";
 
     }
+
+  public String crear(Usuario nuevoUser) {
+        boolean respuesta = dao.createUsuario(nuevoUser);
+        if (respuesta) {
+            return "Se agrego correctamente";
+        }
+        return "No se creo";
+    }
     
     public String eliminar(Usuario user) {
         boolean respuesta = dao.deleteUsuario(user);
