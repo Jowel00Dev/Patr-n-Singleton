@@ -45,10 +45,21 @@ public class UsuarioDAO {
     }
 
     public boolean deleteUsuario(Usuario usuarioAEliminar) {
+      try{  
+        for (int i=0;i<lista.size();i++){
+            if (lista.get(i).getUsuario().equals(usuarioAEliminar.getUsuario())){
+                lista.remove(i);
+                return true;
+            }
+        }
         this.usuariosEliminados.add(usuarioAEliminar);
-        lista.remove(usuarioAEliminar);
         bd.setListaUsuarios(lista);
+        
+    } catch (NullPointerException e) {
+          System.out.println("No se encontro el usuario");
+    }
         return false;
+    
     }
 
 }

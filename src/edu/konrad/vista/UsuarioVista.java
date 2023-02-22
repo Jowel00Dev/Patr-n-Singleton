@@ -53,6 +53,8 @@ public class UsuarioVista {
         if (mensajeRespuesta.equals("Autenticacion exitosa")) {
             user = new Usuario(usuarioLeido, contrasenaLeida);
             return true;
+        } else {
+            mostrarMenuPrincipal();
         }
         return false;
     }
@@ -95,12 +97,8 @@ public class UsuarioVista {
     private void eliminarUsuario() {
         System.out.println("");
         System.out.println("----------------------------------------------");
-        System.out.println("Ingrese el nombre del usuario");
-        String nombreUsuario = sc.nextLine();
-        System.out.println("Ingrese la contraseña");
-        String contrasena = sc.nextLine();
-        Usuario user = new Usuario(nombreUsuario, contrasena);
         System.out.println(logica.eliminar(user));
+        mostrarMenuPrincipal();
     }
 
     private void mostrarMenuInterno() {
