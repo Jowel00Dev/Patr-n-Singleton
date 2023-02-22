@@ -9,6 +9,8 @@ public class UsuarioDAO {
 
     private static BaseDatos bd = BaseDatos.getInstancia();
     private List<Usuario> lista = bd.getListaUsuarios();
+    private List<Usuario> usuariosEliminados;
+    
 
     public boolean readUsuario(Usuario usuarioABuscar) {
         for (Usuario usuarioLista : lista) {
@@ -43,6 +45,9 @@ public class UsuarioDAO {
     }
 
     public boolean deleteUsuario(Usuario usuarioAEliminar) {
+        this.usuariosEliminados.add(usuarioAEliminar);
+        lista.remove(usuarioAEliminar);
+        bd.setListaUsuarios(lista);
         return false;
     }
 

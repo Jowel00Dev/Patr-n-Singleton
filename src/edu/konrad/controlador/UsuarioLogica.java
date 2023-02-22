@@ -27,5 +27,13 @@ public class UsuarioLogica {
         return "El cambio no se aplicó correctamente";
 
     }
+    
+    public String eliminar(Usuario user) {
+        boolean respuesta = dao.deleteUsuario(user);
+        if (respuesta) {
+            return "El usuario " + user.getUsuario() +" ha sido eliminado.";
+        }
+        return "No fue posible eliminar el usuario";
+    }
 
 }

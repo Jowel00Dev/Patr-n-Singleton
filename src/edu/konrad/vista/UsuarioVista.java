@@ -93,7 +93,14 @@ public class UsuarioVista {
     }
 
     private void eliminarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("");
+        System.out.println("----------------------------------------------");
+        System.out.println("Ingrese el nombre del usuario");
+        String nombreUsuario = sc.nextLine();
+        System.out.println("Ingrese la contraseña");
+        String contrasena = sc.nextLine();
+        Usuario user = new Usuario(nombreUsuario, contrasena);
+        System.out.println(logica.eliminar(user));
     }
 
     private void mostrarMenuInterno() {
