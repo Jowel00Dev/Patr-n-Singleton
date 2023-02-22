@@ -3,6 +3,7 @@ package edu.konrad.controlador;
 import edu.konrad.dao.UsuarioDAO;
 import edu.konrad.modelo.Usuario;
 
+//Esto es una prueba de un comentario para git
 public class UsuarioLogica {
 
     private UsuarioDAO dao = new UsuarioDAO();
